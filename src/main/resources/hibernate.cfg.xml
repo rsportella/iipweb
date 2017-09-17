@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/iip</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.connection.password">postgres</property>
+        
+        
+        <mapping class="br.com.is.iipwebs.Entity.Equipe"/>
+        <mapping class="br.com.is.iipwebs.Entity.Servico"/>
+        <mapping class="br.com.is.iipwebs.Entity.ServicoPertenceEvento"/>
+        <mapping class="br.com.is.iipwebs.Entity.Pacote"/>
+        <mapping class="br.com.is.iipwebs.Entity.TipoEvento"/>
+        <mapping class="br.com.is.iipwebs.Entity.Evento"/>
+        <mapping class="br.com.is.iipwebs.Entity.PacotePossuiServicoId"/>
+        <mapping class="br.com.is.iipwebs.Entity.PacotePossuiServico"/>
+        <mapping class="br.com.is.Address.Entity.Endereco"/>
+        <mapping class="br.com.is.Address.Entity.TipoEndereco"/>
+        <mapping class="br.com.is.Address.Entity.Estado"/>
+        <mapping class="br.com.is.Address.Entity.Cidade"/>
+        <mapping class="br.com.is.Address.Entity.Pais"/>
+        <mapping class="br.com.is.Address.Entity.Logradouro"/>
+        <mapping class="br.com.is.Person.Entity.Usuario"/>
+        <mapping class="br.com.is.Person.Entity.PossuiContato"/>
+        <mapping class="br.com.is.Person.Entity.PossuiEndereco"/>
+        <mapping class="br.com.is.Person.Entity.Pessoa"/>
+        <mapping class="br.com.is.Person.Entity.PossuiEnderecoId"/>
+        <mapping class="br.com.is.Person.Entity.PossuiContatoId"/>
+        <mapping class="br.com.is.Contact.Entity.TipoContato"/>
+        <mapping class="br.com.is.Contact.Entity.Contato"/>
+    </session-factory>
+</hibernate-configuration>
