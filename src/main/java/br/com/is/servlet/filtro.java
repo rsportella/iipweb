@@ -60,9 +60,9 @@ public class filtro extends HttpServlet implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
+        urls.add("/iipweb/resources/");
         urls.add("/iipweb/login.jsp");
         urls.add("/iipweb/acao_usuario");
-        urls.add("/iipweb/resources/");
         urls.add("/iipweb/erro.jsp");
     }
 
@@ -76,7 +76,7 @@ public class filtro extends HttpServlet implements Filter {
             request.setAttribute("parametro", "login");
             chain.doFilter(request, response);
         } else {
-            HttpSession sessao = ((HttpServletRequest) request).getSession();
+            HttpSession  sessao = ((HttpServletRequest) request).getSession();
 
             // caso não pertença a lista, verifica se há usuário na sessão
             // se não houver, encaminha para o Login

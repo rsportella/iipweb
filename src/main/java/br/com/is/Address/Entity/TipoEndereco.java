@@ -26,7 +26,7 @@ public class TipoEndereco implements java.io.Serializable {
     private String nome;
     private String sigla;
     private String descricao;
-    private Boolean ativo;
+    private Boolean status;
     private Set<PossuiEndereco> possuiEnderecos = new HashSet<PossuiEndereco>(0);
 
     public TipoEndereco() {
@@ -36,12 +36,12 @@ public class TipoEndereco implements java.io.Serializable {
         this.codigo = codigo;
     }
 
-    public TipoEndereco(int codigo, String nome, String sigla, String descricao, Boolean ativo, Set<PossuiEndereco> possuiEnderecos) {
+    public TipoEndereco(int codigo, String nome, String sigla, String descricao, Boolean status, Set<PossuiEndereco> possuiEnderecos) {
         this.codigo = codigo;
         this.nome = nome;
         this.sigla = sigla;
         this.descricao = descricao;
-        this.ativo = ativo;
+        this.status = status;
         this.possuiEnderecos = possuiEnderecos;
     }
 
@@ -83,13 +83,13 @@ public class TipoEndereco implements java.io.Serializable {
         this.descricao = descricao;
     }
 
-    @Column(name = "ativo")
-    public Boolean getAtivo() {
-        return this.ativo;
+    @Column(name = "status")
+    public Boolean getStatus() {
+        return this.status;
     }
 
-    public void setAtivo(Boolean ativo) {
-        this.ativo = ativo;
+    public void setStatus(Boolean status) {
+        this.status = status;
     }
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "tipoEndereco")

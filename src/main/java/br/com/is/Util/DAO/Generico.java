@@ -21,29 +21,29 @@ public class Generico<T> {
         this.obj = obj;
     }
 
-    public String gravar() {
+    public boolean gravar() {
         try {
             s.saveOrUpdate(this.obj);
             s.getTransaction().commit();
-            return "Gravado com sucesso!";
+            return true;
         } catch (Exception e) {
             s.getTransaction().rollback();
             System.out.println("Erro ao gravar: " + e.getMessage());
-            return "Houve algum problema para gravado!";
+            return false;
         } finally {
             s.close();
         }
     }
 
-    public String excluir() {
+    public boolean excluir() {
         try {
             s.delete(this.obj);
             s.getTransaction().commit();
-            return "Excluido com sucesso!";
+            return true;
         } catch (Exception e) {
             s.getTransaction().rollback();
             System.out.println("Erro ao excluir: " + e.getMessage());
-            return "Houve algum problema para excluir!";
+            return false;
         } finally {
             s.close();
         }

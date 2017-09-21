@@ -24,7 +24,7 @@ public class Logradouro implements java.io.Serializable {
     private int codigo;
     private String nome;
     private String sigla;
-    private Boolean ativo;
+    private Boolean status;
     private Set<Endereco> enderecos = new HashSet<Endereco>(0);
 
     public Logradouro() {
@@ -34,11 +34,11 @@ public class Logradouro implements java.io.Serializable {
         this.codigo = codigo;
     }
 
-    public Logradouro(int codigo, String nome, String sigla, Boolean ativo, Set<Endereco> enderecos) {
+    public Logradouro(int codigo, String nome, String sigla, Boolean status, Set<Endereco> enderecos) {
         this.codigo = codigo;
         this.nome = nome;
         this.sigla = sigla;
-        this.ativo = ativo;
+        this.status = status;
         this.enderecos = enderecos;
     }
 
@@ -71,13 +71,13 @@ public class Logradouro implements java.io.Serializable {
         this.sigla = sigla;
     }
 
-    @Column(name = "ativo")
-    public Boolean getAtivo() {
-        return this.ativo;
+    @Column(name = "status")
+    public Boolean getStatus() {
+        return this.status;
     }
 
-    public void setAtivo(Boolean ativo) {
-        this.ativo = ativo;
+    public void setStatus(Boolean status) {
+        this.status = status;
     }
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "logradouro")

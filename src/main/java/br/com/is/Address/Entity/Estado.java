@@ -27,6 +27,7 @@ public class Estado implements java.io.Serializable {
     private Pais pais;
     private String nome;
     private String uf;
+    private Boolean status;
     private Set<Cidade> cidades = new HashSet<Cidade>(0);
 
     public Estado() {
@@ -82,6 +83,15 @@ public class Estado implements java.io.Serializable {
 
     public void setUf(String uf) {
         this.uf = uf;
+    }
+
+    @Column(name = "status")
+    public Boolean getStatus() {
+        return this.status;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
     }
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "estado")

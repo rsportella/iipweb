@@ -1,5 +1,5 @@
 package br.com.is.Person.Entity;
-// Generated 13/09/2017 20:17:35 by Hibernate Tools 4.3.1
+// Generated 18/09/2017 19:52:40 by Hibernate Tools 4.3.1
 
 import br.com.is.iipwebs.Entity.Equipe;
 import java.util.Date;
@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -32,8 +33,9 @@ public class Pessoa implements java.io.Serializable {
     private String rg;
     private Date nascimento;
     private String orgexp;
-    private String genero;
+    private Character genero;
     private Set<PossuiContato> possuiContatos = new HashSet<PossuiContato>(0);
+    private Usuario usuario;
     private Set<Equipe> equipes = new HashSet<Equipe>(0);
     private Set<PossuiEndereco> possuiEnderecos = new HashSet<PossuiEndereco>(0);
 
@@ -46,7 +48,7 @@ public class Pessoa implements java.io.Serializable {
         this.nascimento = nascimento;
     }
 
-    public Pessoa(int codigo, String nome, String apelido, String cpf, String rg, Date nascimento, String orgexp, String genero, Set<PossuiContato> possuiContatos, Set<Equipe> equipes, Set<PossuiEndereco> possuiEnderecos) {
+    public Pessoa(int codigo, String nome, String apelido, String cpf, String rg, Date nascimento, String orgexp, Character genero, Set<PossuiContato> possuiContatos, Usuario usuario, Set<Equipe> equipes, Set<PossuiEndereco> possuiEnderecos) {
         this.codigo = codigo;
         this.nome = nome;
         this.apelido = apelido;
@@ -56,6 +58,7 @@ public class Pessoa implements java.io.Serializable {
         this.orgexp = orgexp;
         this.genero = genero;
         this.possuiContatos = possuiContatos;
+        this.usuario = usuario;
         this.equipes = equipes;
         this.possuiEnderecos = possuiEnderecos;
     }
@@ -127,11 +130,11 @@ public class Pessoa implements java.io.Serializable {
     }
 
     @Column(name = "genero", length = 1)
-    public String getGenero() {
+    public Character getGenero() {
         return this.genero;
     }
 
-    public void setGenero(String genero) {
+    public void setGenero(Character genero) {
         this.genero = genero;
     }
 
@@ -142,6 +145,15 @@ public class Pessoa implements java.io.Serializable {
 
     public void setPossuiContatos(Set<PossuiContato> possuiContatos) {
         this.possuiContatos = possuiContatos;
+    }
+
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "pessoa")
+    public Usuario getUsuario() {
+        return this.usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "pessoa")

@@ -26,6 +26,7 @@ public class Cidade implements java.io.Serializable {
     private int codigo;
     private Estado estado;
     private String nome;
+    private Boolean status;
     private Set<Endereco> enderecos = new HashSet<Endereco>(0);
 
     public Cidade() {
@@ -71,6 +72,15 @@ public class Cidade implements java.io.Serializable {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    @Column(name = "status")
+    public Boolean getStatus() {
+        return this.status;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
     }
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "cidade")

@@ -26,6 +26,7 @@ public class TipoContato implements java.io.Serializable {
     private String nome;
     private String sigla;
     private String descricao;
+    private Boolean status;
     private Set<PossuiContato> possuiContatos = new HashSet<PossuiContato>(0);
 
     public TipoContato() {
@@ -79,6 +80,15 @@ public class TipoContato implements java.io.Serializable {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    @Column(name = "status", length = 150)
+    public Boolean getStatus() {
+        return this.status;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
     }
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "tipoContato")

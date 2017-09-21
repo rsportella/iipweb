@@ -1,6 +1,6 @@
 package br.com.is.servlet;
 
-import br.com.is.Person.Controller.ControlaUsuario;
+import br.com.is.Person.Controller.UsuarioController;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,13 +17,9 @@ public class acao_usuario extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
-        System.out.println("Entrei no POST!");
         String parametro = req.getParameter("parametro");
-
         if (parametro.equals("login")) {
-            System.out.println("aqui");
-            if (new ControlaUsuario().autenticarUsuario(req, resp)) {
-                //encaminharPagina("menu.jsp", request, response);                
+            if (new UsuarioController().authenticate(req, resp)) {
                 resp.sendRedirect("index.jsp");
             } else {
                 encaminharPagina("erro.jsp", req, resp);
@@ -34,14 +30,8 @@ public class acao_usuario extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
-
-        System.out.println("Entrei no GET!");
-
         String parametro = req.getParameter("parametro");
-        System.out.println("Parametro: " + parametro);
-
         if (parametro.equals("logout")) {
-            System.out.println("LOGOUTTTTTT");
             HttpSession sessao = req.getSession();
             sessao.invalidate();
             req.getRequestDispatcher("login.jsp").forward(req, resp);

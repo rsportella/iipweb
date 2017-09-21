@@ -4,21 +4,87 @@
         <servlet-name>filtro</servlet-name>
         <servlet-class>br.com.is.servlet.filtro</servlet-class>
     </servlet>
+    <servlet-mapping>
+        <servlet-name>filtro</servlet-name>
+        <url-pattern>/filtro</url-pattern>
+    </servlet-mapping>
     <servlet>
         <servlet-name>acao_usuario</servlet-name>
         <servlet-class>br.com.is.servlet.acao_usuario</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>filtro</servlet-name>
-        <url-pattern>/filtro</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>acao_usuario</servlet-name>
         <url-pattern>/acao_usuario</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>UsuarioServlet</servlet-name>
+        <servlet-class>br.com.is.servlet.UsuarioServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UsuarioServlet</servlet-name>
+        <url-pattern>/usuario</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>TipoenderecoServlet</servlet-name>
+        <servlet-class>br.com.is.servlet.TipoenderecoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TipoenderecoServlet</servlet-name>
+        <url-pattern>/tipoendereco</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>LogradouroServlet</servlet-name>
+        <servlet-class>br.com.is.servlet.LogradouroServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LogradouroServlet</servlet-name>
+        <url-pattern>/logradouro</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>PaisServlet</servlet-name>
+        <servlet-class>br.com.is.servlet.PaisServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PaisServlet</servlet-name>
+        <url-pattern>/pais</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>EstadoServlet</servlet-name>
+        <servlet-class>br.com.is.servlet.EstadoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EstadoServlet</servlet-name>
+        <url-pattern>/estado</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>CidadeServlet</servlet-name>
+        <servlet-class>br.com.is.servlet.CidadeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CidadeServlet</servlet-name>
+        <url-pattern>/cidade</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>TipocontatoServlet</servlet-name>
+        <servlet-class>br.com.is.servlet.TipocontatoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TipocontatoServlet</servlet-name>
+        <url-pattern>/tipocontato</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
+    <jsp-config>
+        <jsp-property-group>
+            <url-pattern>*.jsp</url-pattern>
+            <scripting-invalid>false</scripting-invalid>
+        </jsp-property-group>
+        <jsp-property-group>
+            <url-pattern>*.tag</url-pattern>
+            <scripting-invalid>false</scripting-invalid>
+        </jsp-property-group>
+    </jsp-config>
 </web-app>
